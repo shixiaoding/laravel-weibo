@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use League\Flysystem\Config;
 
 class UsersController extends Controller
 {
@@ -59,8 +60,8 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'sding1993@163.com';
-        $name = '施鼎';
+        $from = config('mail.from.address');
+        $name = config('mail.from.name');
         $to = $user->email;
 
         $subject = '感谢注册 Sample 应用！请确认你的邮箱。';

@@ -9,9 +9,10 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class ResetPassword extends Notification
 {
-    use Queueable;
+    //use Queueable;
 
     public $token;
+
     /**
      * Create a new notification instance.
      *
