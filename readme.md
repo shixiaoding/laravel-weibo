@@ -18,7 +18,49 @@
 ### 安装
 
 --------
+1.克隆代码
+```git
+   git clone https://github.com/shixiaoding/laravel-weibo.git
+```
 
+2.设置配置
+```shell
+    cp .env.example .env 
+```
+
+3.安装扩展包
+安装`laravel`扩展
+```shell
+    composer install
+```
+安装前端扩展
+```shell
+    yarn install
+```
+
+4.生成key
+```shell
+    php artisan key:generate
+```
+
+5.创建表并填充数据
+在`.env`配置文件中，有关database相关配置修改为系统设置
+```shell
+    php artisan migrate --seed
+```
+
+6.配置邮件相关配置
+在`.env`配置文件中
+```php
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.163.com
+MAIL_PORT=465
+MAIL_USERNAME=你的邮箱地址
+MAIL_PASSWORD=邮箱授权码
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=你的邮箱地址
+MAIL_FROM_NAME=你的邮箱用户名
+```
 
 ### 谢谢
 
