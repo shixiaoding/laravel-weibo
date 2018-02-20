@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration
+class CreateFollowerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('followers', function (Blueprint $table) {
+            $table->comment='用户关注表';
             $table->increments('id');
+            $table->integer('user_id')->index()->comment('用户id');
+            $table->integer('follower_id')->index()->comment('关注者id');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('followers');
     }
 }

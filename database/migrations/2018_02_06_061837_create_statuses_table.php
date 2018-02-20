@@ -14,9 +14,10 @@ class CreateStatusesTable extends Migration
     public function up()
     {
         Schema::create('statuses', function (Blueprint $table) {
+            $table->comment="文章表";
             $table->increments('id');
-            $table->text('content');
-            $table->integer('user_id')->index();
+            $table->text('content')->comment('文字内容');
+            $table->integer('user_id')->index()->comment('用户id');
             $table->index(['created_at']);
             $table->timestamps();
         });
